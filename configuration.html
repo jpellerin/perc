@@ -1,0 +1,409 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Configuration &mdash; Perc 0.5.0 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Perc 0.5.0 documentation" href="index.html"/>
+        <link rel="next" title="Working with perc" href="workflow.html"/>
+        <link rel="prev" title="Get Started" href="get_started.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="index.html" class="fa fa-home"> Perc</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="get_started.html">Get Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="get_started.html#install-perc-with-npm">Install perc with npm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="get_started.html#percolate-a-new-or-existing-project">Percolate a new or existing project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="get_started.html#write-code-and-tests">Write code and tests</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#build">build</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#check">check</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#test">test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#watch">watch</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="workflow.html">Working with perc</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="workflow.html#write-tests">Write tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workflow.html#write-application-modules">Write application modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workflow.html#includes">&#8220;Includes&#8221;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workflow.html#build-the-application">Build the application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workflow.html#check-the-build">Check the build</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workflow.html#automate-it">Automate it</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="init.html">Command: perc init</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="init.html#details">Details</a></li>
+<li class="toctree-l2"><a class="reference internal" href="init.html#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="init.html#options">Options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="test.html">Command: perc test</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="test.html#details">Details</a></li>
+<li class="toctree-l2"><a class="reference internal" href="test.html#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="test.html#options">Options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="build.html">Command: perc build</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="build.html#details">Details</a></li>
+<li class="toctree-l2"><a class="reference internal" href="build.html#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="build.html#options">Options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="check.html">Command: perc check</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="check.html#details">Details</a></li>
+<li class="toctree-l2"><a class="reference internal" href="check.html#usage">Usage</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="watch.html">Command: perc watch</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="watch.html#details">Details</a></li>
+<li class="toctree-l2"><a class="reference internal" href="watch.html#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="watch.html#options">Options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="custom_commands.html">Custom commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id1">0.5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id2">0.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id3">0.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id4">0.1.1</a></li>
+</ul>
+</li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Perc</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Configuration</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="_sources/configuration.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="configuration">
+<span id="id1"></span><h1>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h1>
+<p>perc keeps its configuration in your project&#8217;s <tt class="docutils literal"><span class="pre">package.json</span></tt>, under
+they key <tt class="docutils literal"><span class="pre">perc</span></tt>. The default configuration from the default skeleton
+is:</p>
+<div class="code json highlight-python"><div class="highlight"><pre><span class="p">{</span>
+  <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;// etc.. &quot;</span><span class="p">,</span>
+  <span class="s">&quot;perc&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s">&quot;build&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s">&quot;sources&quot;</span><span class="p">:</span> <span class="s">&quot;lib&quot;</span><span class="p">,</span>
+      <span class="s">&quot;sourcePattern&quot;</span><span class="p">:</span> <span class="s">&quot;**/*.coffee&quot;</span><span class="p">,</span>
+      <span class="s">&quot;output&quot;</span><span class="p">:</span> <span class="s">&quot;static/app.js&quot;</span>
+    <span class="p">},</span>
+    <span class="s">&quot;check&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s">&quot;dir&quot;</span><span class="p">:</span> <span class="s">&quot;sanity&quot;</span><span class="p">,</span>
+      <span class="s">&quot;test&quot;</span><span class="p">:</span> <span class="s">&quot;test.html&quot;</span><span class="p">,</span>
+      <span class="s">&quot;//moreTests&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s">&quot;test.js&quot;</span><span class="p">]</span>
+    <span class="p">},</span>
+    <span class="s">&quot;test&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s">&quot;cases&quot;</span><span class="p">:</span> <span class="s">&quot;spec/**/*.coffee&quot;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>As you can see, each of the top-level keys in the configuration
+corresponds to a perc command.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Except where noted, all paths in perc&#8217;s config are relative to the
+directory containing <tt class="docutils literal"><span class="pre">package.json</span></tt>.</p>
+</div>
+<div class="section" id="build">
+<h2>build<a class="headerlink" href="#build" title="Permalink to this headline">¶</a></h2>
+<p>The build section may be a simple map, in which case only one output
+file is generated. It may also be a list of maps, in which case each
+entry in the list corresponds with an output file, for example:</p>
+<div class="code json highlight-python"><div class="highlight"><pre>&quot;build&quot;: [
+    {
+        &quot;sources&quot;: &quot;lib/app&quot;,
+        &quot;sourcePattern&quot;: &quot;**/*.coffee&quot;,
+        &quot;output&quot;: &quot;../static/js/app.js&quot;
+    },
+    {
+        &quot;sources&quot;: &quot;lib/help&quot;,
+        &quot;sourcePattern&quot;: &quot;**/*.coffee&quot;,
+        &quot;output&quot;: &quot;../static/js/helper.js&quot;,
+        &quot;entry&quot;: &quot;lib/help/entry.js&quot;
+    }],
+</pre></div>
+</div>
+<p>In either case, the entries in the build map ae the same:</p>
+<dl class="describe">
+<dt>
+<tt class="descname">sources</tt></dt>
+<dd><p>The application&#8217;s source directory. Default: <tt class="docutils literal"><span class="pre">lib</span></tt></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">sourcePattern</tt></dt>
+<dd><p>The glob pattern used to match source files that you want to include in
+the build. This pattern is applied to files in the sources dir to select
+files directly included in the build. Default: <tt class="docutils literal"><span class="pre">**/*.coffee</span></tt></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">output</tt></dt>
+<dd><p>The build output file. Default: <tt class="docutils literal"><span class="pre">static/app.js</span></tt></p>
+</dd></dl>
+
+</div>
+<div class="section" id="check">
+<span id="check-config"></span><h2>check<a class="headerlink" href="#check" title="Permalink to this headline">¶</a></h2>
+<dl class="describe">
+<dt>
+<tt class="descname">dir</tt></dt>
+<dd><p>The directory in which to place sanity check files. Default: <tt class="docutils literal"><span class="pre">sanity</span></tt>.</p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">test</tt></dt>
+<dd><p>The html test file that will be used (with
+<a class="reference external" href="https://github.com/metaskills/mocha-phantomjs">mocha_phantomjs</a>) to sanity
+check the build. Default: <tt class="docutils literal"><span class="pre">test.html</span></tt>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This file is regenerated with each check and should not be edited
+by hand.</p>
+</div>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">moreTests</tt></dt>
+<dd><p>A list of additional test scripts to include in the sanity test file.
+Theses paths should be relative to the <tt class="docutils literal"><span class="pre">check.dir</span></tt> directory, not
+package root. Each file should be a <em>javascript</em> test written with
+<a class="reference external" href="http://visionmedia.github.com/mocha/">mocha</a> and
+<a class="reference external" href="http://chaijs.com">chai</a>.</p>
+</dd></dl>
+
+<p>The check command also supports some keys not in the default config:</p>
+<dl class="describe">
+<dt>
+<tt class="descname">runner</tt></dt>
+<dd><p>Set the sanity check test runner. You can use this if
+mocha-phantomjs is not on your path, or if you want to use an
+entirely different sanity check test runner. The default is
+<tt class="docutils literal"><span class="pre">mocha-phantomjs</span></tt></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">runnerOpts</tt></dt>
+<dd><p>Options to pass through to the sanity check test runner. Use this
+to set the mocha reporter, for instance.</p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">template</tt></dt>
+<dd><p>Path (relative to package root) to an
+<a class="reference external" href="https://github.com/sstephenson/eco">eco template</a> that will
+be used to generate the sanity test html file.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="test">
+<h2>test<a class="headerlink" href="#test" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="cases"></span><dl class="describe">
+<dt>
+<tt class="descname">cases</tt></dt>
+<dd><p>The glob used (relative to package root) to find test cases.
+Default: <tt class="docutils literal"><span class="pre">spec/**/*.coffee</span></tt></p>
+</dd></dl>
+
+<p>The test command supports several additional config keys, which are
+not set in the default configuration. All of these may also be set
+with command-line options &#8211; the command line options will override
+the configuration value.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">types</tt></dt>
+<dd><p>The comma-separated list of types of tests to load. The specified
+types are used to match file sub-extensions to select
+tests. Default: <tt class="docutils literal"><span class="pre">spec,unit,functional</span></tt></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">reporter</tt></dt>
+<dd><p>The mocha reporter to use. Default: <tt class="docutils literal"><span class="pre">spec</span></tt></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">timeout</tt></dt>
+<dd><p>The mocha test timeout. Default: <tt class="docutils literal"><span class="pre">6000</span></tt> (6 seconds)</p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">ui</tt></dt>
+<dd><p>The mocha test-writing ui. Default: <tt class="docutils literal"><span class="pre">bdd</span></tt></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">coverageFile</tt></dt>
+<dd><p>The file (relative to package root) where the coverage html report
+will be written in test coverage mode.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="watch">
+<h2>watch<a class="headerlink" href="#watch" title="Permalink to this headline">¶</a></h2>
+<p>In some cases (especially applications with multiple build files), the
+default <tt class="docutils literal"><span class="pre">watch</span></tt> command configuration may miss some library
+files. For those cases, you can configure a list of additional
+directories to watch:</p>
+<div class="code json highlight-python"><div class="highlight"><pre>&quot;watch&quot;: [&quot;common/lib&quot;]
+</pre></div>
+</div>
+<p>Changes to source files in those directories will trigger a rebuild.</p>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="workflow.html" class="btn btn-neutral float-right" title="Working with perc"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="get_started.html" class="btn btn-neutral" title="Get Started"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014, Jason Pellerin.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.5.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

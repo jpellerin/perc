@@ -1,0 +1,324 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Working with perc &mdash; Perc 0.5.0 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Perc 0.5.0 documentation" href="index.html"/>
+        <link rel="next" title="Command: perc init" href="init.html"/>
+        <link rel="prev" title="Configuration" href="configuration.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="index.html" class="fa fa-home"> Perc</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="get_started.html">Get Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="get_started.html#install-perc-with-npm">Install perc with npm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="get_started.html#percolate-a-new-or-existing-project">Percolate a new or existing project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="get_started.html#write-code-and-tests">Write code and tests</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html#build">build</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html#check">check</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html#test">test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html#watch">watch</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Working with perc</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#write-tests">Write tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#write-application-modules">Write application modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#includes">&#8220;Includes&#8221;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#build-the-application">Build the application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#check-the-build">Check the build</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#automate-it">Automate it</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="init.html">Command: perc init</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="init.html#details">Details</a></li>
+<li class="toctree-l2"><a class="reference internal" href="init.html#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="init.html#options">Options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="test.html">Command: perc test</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="test.html#details">Details</a></li>
+<li class="toctree-l2"><a class="reference internal" href="test.html#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="test.html#options">Options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="build.html">Command: perc build</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="build.html#details">Details</a></li>
+<li class="toctree-l2"><a class="reference internal" href="build.html#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="build.html#options">Options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="check.html">Command: perc check</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="check.html#details">Details</a></li>
+<li class="toctree-l2"><a class="reference internal" href="check.html#usage">Usage</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="watch.html">Command: perc watch</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="watch.html#details">Details</a></li>
+<li class="toctree-l2"><a class="reference internal" href="watch.html#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="watch.html#options">Options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="custom_commands.html">Custom commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id1">0.5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id2">0.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id3">0.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id4">0.1.1</a></li>
+</ul>
+</li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Perc</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Working with perc</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="_sources/workflow.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="working-with-perc">
+<h1>Working with perc<a class="headerlink" href="#working-with-perc" title="Permalink to this headline">¶</a></h1>
+<p>perc encourages a TDDish workflow in which unit tests are written, if not
+first, then often, and run frequently.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Specific file paths, extensions, and so on mentioned below assume
+the default configuration. See <a class="reference internal" href="configuration.html#configuration"><em>Configuration</em></a> for details
+about which are configurable and how to configure them.</p>
+</div>
+<div class="section" id="write-tests">
+<h2>Write tests<a class="headerlink" href="#write-tests" title="Permalink to this headline">¶</a></h2>
+<p>Write tests using mocha&#8217;s BDD style, give them the exension
+<tt class="docutils literal"><span class="pre">.spec.coffee</span></tt>, and put them into the <tt class="docutils literal"><span class="pre">spec/</span></tt> directory. Run them with
+<a class="reference internal" href="test.html#test-command"><em>perc test</em></a> or <tt class="docutils literal"><span class="pre">make</span> <span class="pre">test</span></tt>.</p>
+<p>Test coverage is available by adding the <em class="xref std std-option">-C</em> flag to <a class="reference internal" href="test.html#test-command"><em>perc
+test</em></a> (or call <tt class="docutils literal"><span class="pre">make</span> <span class="pre">cover</span></tt>). Coverage is output to
+<tt class="docutils literal"><span class="pre">coverage.html</span></tt>. It applies to the coffescript sources, not the
+generated javascript.</p>
+</div>
+<div class="section" id="write-application-modules">
+<h2>Write application modules<a class="headerlink" href="#write-application-modules" title="Permalink to this headline">¶</a></h2>
+<p>Write application modules in coffeescript and put them under
+<tt class="docutils literal"><span class="pre">lib/</span></tt>. In your application (and tests, for that matter), you can
+use nodejs modules supported by <a class="reference external" href="http://browserify.org/">browserify</a>
+&#8211; <tt class="docutils literal"><span class="pre">npm</span> <span class="pre">install</span> <span class="pre">--save</span></tt> them to ensure your <tt class="docutils literal"><span class="pre">package.json</span></tt> stays
+up to date.</p>
+</div>
+<div class="section" id="includes">
+<h2>&#8220;Includes&#8221;<a class="headerlink" href="#includes" title="Permalink to this headline">¶</a></h2>
+<p>If you want to use other, non-modular javascript files, put them in a
+different directory, either under <tt class="docutils literal"><span class="pre">lib/</span></tt> or elsewhere. Then, <tt class="docutils literal"><span class="pre">require</span></tt>
+them using a relative path as if they were commonjs modules. As long
+as they operate on <tt class="docutils literal"><span class="pre">window</span></tt> or have a valid commonjs wrapper, they
+should work fine. The ones without a wrapper, of course, won&#8217;t export
+anything, so whatever you want from them you&#8217;ll have to pull out of
+<tt class="docutils literal"><span class="pre">global.window</span></tt>. For instance, here&#8217;s now the sample project uses
+jquery, which it has placed under <tt class="docutils literal"><span class="pre">lib/includes/</span></tt>:</p>
+<div class="code coffeescript highlight-python"><div class="highlight"><pre>require(&#39;../includes/jquery&#39;)
+
+main = () -&gt;
+  $(document).ready () -&gt;
+    load()
+</pre></div>
+</div>
+<p>In some cases you may need to update an include&#8217;s commonjs wrapper, if
+it has dependencies and lists them as global.</p>
+</div>
+<div class="section" id="build-the-application">
+<h2>Build the application<a class="headerlink" href="#build-the-application" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference internal" href="build.html#build-command"><em>perc build</em></a> will compile all of your coffeescript sources into
+javascript and combine them into one monolithic module, which will be
+saved to the path set by <tt class="docutils literal"><span class="pre">config.build.output</span></tt> &#8211; <tt class="docutils literal"><span class="pre">static/app.js</span></tt> by
+default. The real work is done by
+<a class="reference external" href="http://browserify.org/">browserify</a>, so <tt class="docutils literal"><span class="pre">perc</span></tt> supports all of the
+node modules that browserify does. You can also build a minimized
+version.</p>
+<p>The build application puts only the <tt class="docutils literal"><span class="pre">require</span></tt> function into the global
+namespace. You use that to load application code. Here&#8217;s how the
+sample project does it:</p>
+<div class="code html highlight-python"><div class="highlight"><pre>&lt;script src=&quot;/static/app.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+  require(&#39;/lib/main&#39;).main()
+&lt;/script&gt;
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Note the require path: <tt class="docutils literal"><span class="pre">/lib/main</span></tt> &#8211; it is an absolute path,
+as if running chrooted into the package root. This is how to
+address modules at the top level, in an html page that
+pulls in the build application.</p>
+</div>
+</div>
+<div class="section" id="check-the-build">
+<h2>Check the build<a class="headerlink" href="#check-the-build" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference internal" href="check.html#check-command"><em>perc check</em></a> will generate a sanity test file
+that checks that the built application can load and that each of your
+application modules can be <tt class="docutils literal"><span class="pre">required</span></tt>. If you want to test more than
+that, you can add test modules to the sanity directory, and put them
+in your config file&#8217;s <tt class="docutils literal"><span class="pre">config.check.moreTests</span></tt> list.</p>
+<p>The test file is set up to load
+<a class="reference external" href="http://visionmedia.github.com/mocha/">mocha</a>,
+<a class="reference external" href="http://chaijs.com">chai</a> for use in writing additional tests. Note
+that these tests will <em>not</em> be compiled from coffeescript
+automatically. If you want to write sanity tests in coffeescript, you
+must set up a build process for them.</p>
+<p>You can also load the sanity test file in any browser.</p>
+</div>
+<div class="section" id="automate-it">
+<h2>Automate it<a class="headerlink" href="#automate-it" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference internal" href="watch.html#watch-command"><em>perc watch</em></a> will watch your <tt class="docutils literal"><span class="pre">lib/</span></tt> and
+:ref:<tt class="docutils literal"><span class="pre">spec/</span></tt> directories and run <cite>perc test &lt;test-command&gt;</cite> (and
+:ref:optionally <a class="reference internal" href="build.html#build-command"><em>perc build</em></a> and <a class="reference internal" href="check.html#check-command"><em>perc check
+:ref:</em></a>) whenever it detects a changed file.</p>
+<p>For each change it sees, <a class="reference internal" href="watch.html#watch-command"><em>perc watch</em></a> prints the
+file name, then the results of running the specified commands. When
+commands succeed, the output is just (for instance) &#8220;perc test
+ok&#8221;. When commands fail, the stdout and stderr output from the command
+is printed, after a failure notice.</p>
+<p><a class="reference internal" href="watch.html#watch-command"><em>perc watch</em></a> runs continuously, so you&#8217;ll
+probably want to run it in a dedicated shell.</p>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="init.html" class="btn btn-neutral float-right" title="Command: perc init"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="configuration.html" class="btn btn-neutral" title="Configuration"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014, Jason Pellerin.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.5.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

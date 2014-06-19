@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Welcome to Perc’s documentation! &mdash; Perc 0.5.0 documentation</title>
+  <title>Search &mdash; Perc 0.5.0 documentation</title>
   
 
   
@@ -28,8 +28,7 @@
   
 
   
-    <link rel="top" title="Perc 0.5.0 documentation" href="#"/>
-        <link rel="next" title="Get Started" href="get_started.html"/> 
+    <link rel="top" title="Perc 0.5.0 documentation" href="index.html"/> 
 
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
@@ -43,9 +42,9 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-nav-search">
-        <a href="#" class="fa fa-home"> Perc</a>
+        <a href="index.html" class="fa fa-home"> Perc</a>
         <div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="search.html" method="get">
+  <form id ="rtd-search-form" class="wy-form" action="#" method="get">
     <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
@@ -128,7 +127,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="#">Perc</a>
+        <a href="index.html">Perc</a>
       </nav>
 
 
@@ -137,12 +136,10 @@
         <div class="rst-content">
           <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="#">Docs</a> &raquo;</li>
+    <li><a href="index.html">Docs</a> &raquo;</li>
       
-    <li>Welcome to Perc&#8217;s documentation!</li>
+    <li></li>
       <li class="wy-breadcrumbs-aside">
-        
-          <a href="_sources/index.txt" rel="nofollow"> View page source</a>
         
       </li>
   </ul>
@@ -150,107 +147,22 @@
 </div>
           <div role="main">
             
-  <div class="section" id="welcome-to-perc-s-documentation">
-<h1>Welcome to Perc&#8217;s documentation!<a class="headerlink" href="#welcome-to-perc-s-documentation" title="Permalink to this headline">¶</a></h1>
-<p><tt class="docutils literal"><span class="pre">perc</span></tt> is a coffeescript application development tool. Its goal is
-to make developing large, modular browser applications in coffeescript
-as painless as possible. It makes several assumptions and has several
-opinions:</p>
-<ul class="simple">
-<li>application code and tests are written in coffeescript</li>
-<li>application code is organized into commonjs modules</li>
-<li>target build is a single, monolithic javascript file
-that includes all application modules and all modules
-they <tt class="docutils literal"><span class="pre">require</span></tt></li>
-<li><a class="reference external" href="http://visionmedia.github.com/mocha/">mocha</a> is used for unit
-tests, which are run under nodejs, optionally using
-<a class="reference external" href="https://github.com/tmpvar/jsdom">jsdom</a></li>
-<li>build sanity check also uses mocha, but runs under
-<a class="reference external" href="http://phantomjs.org/">phantomjs</a></li>
-</ul>
-<p>Contents:</p>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="get_started.html">Get Started</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="get_started.html#install-perc-with-npm">Install perc with npm</a></li>
-<li class="toctree-l2"><a class="reference internal" href="get_started.html#percolate-a-new-or-existing-project">Percolate a new or existing project</a></li>
-<li class="toctree-l2"><a class="reference internal" href="get_started.html#write-code-and-tests">Write code and tests</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuration</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="configuration.html#build">build</a></li>
-<li class="toctree-l2"><a class="reference internal" href="configuration.html#check">check</a></li>
-<li class="toctree-l2"><a class="reference internal" href="configuration.html#test">test</a></li>
-<li class="toctree-l2"><a class="reference internal" href="configuration.html#watch">watch</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="workflow.html">Working with perc</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="workflow.html#write-tests">Write tests</a></li>
-<li class="toctree-l2"><a class="reference internal" href="workflow.html#write-application-modules">Write application modules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="workflow.html#includes">&#8220;Includes&#8221;</a></li>
-<li class="toctree-l2"><a class="reference internal" href="workflow.html#build-the-application">Build the application</a></li>
-<li class="toctree-l2"><a class="reference internal" href="workflow.html#check-the-build">Check the build</a></li>
-<li class="toctree-l2"><a class="reference internal" href="workflow.html#automate-it">Automate it</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="init.html">Command: perc init</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="init.html#details">Details</a></li>
-<li class="toctree-l2"><a class="reference internal" href="init.html#usage">Usage</a></li>
-<li class="toctree-l2"><a class="reference internal" href="init.html#options">Options</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="test.html">Command: perc test</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="test.html#details">Details</a></li>
-<li class="toctree-l2"><a class="reference internal" href="test.html#usage">Usage</a></li>
-<li class="toctree-l2"><a class="reference internal" href="test.html#options">Options</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="build.html">Command: perc build</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="build.html#details">Details</a></li>
-<li class="toctree-l2"><a class="reference internal" href="build.html#usage">Usage</a></li>
-<li class="toctree-l2"><a class="reference internal" href="build.html#options">Options</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="check.html">Command: perc check</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="check.html#details">Details</a></li>
-<li class="toctree-l2"><a class="reference internal" href="check.html#usage">Usage</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="watch.html">Command: perc watch</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="watch.html#details">Details</a></li>
-<li class="toctree-l2"><a class="reference internal" href="watch.html#usage">Usage</a></li>
-<li class="toctree-l2"><a class="reference internal" href="watch.html#options">Options</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="custom_commands.html">Custom commands</a></li>
-<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html#id1">0.5</a></li>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html#id2">0.3</a></li>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html#id3">0.2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html#id4">0.1.1</a></li>
-</ul>
-</li>
-</ul>
-</div>
-</div>
-<div class="section" id="indices-and-tables">
-<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
-<ul class="simple">
-<li><a class="reference internal" href="genindex.html"><em>Index</em></a></li>
-<li><a class="reference internal" href="search.html"><em>Search Page</em></a></li>
-</ul>
-</div>
+  <noscript>
+  <div id="fallback" class="admonition warning">
+    <p class="last">
+      Please activate JavaScript to enable the search
+      functionality.
+    </p>
+  </div>
+  </noscript>
 
+  
+  <div id="search-results">
+  
+  </div>
 
           </div>
           <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="get_started.html" class="btn btn-neutral float-right" title="Get Started"/>Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-    </div>
   
 
   <hr/>
@@ -286,6 +198,7 @@ tests, which are run under nodejs, optionally using
       <script type="text/javascript" src="_static/jquery.js"></script>
       <script type="text/javascript" src="_static/underscore.js"></script>
       <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/searchtools.js"></script>
 
   
 
@@ -301,7 +214,14 @@ tests, which are run under nodejs, optionally using
           SphinxRtdTheme.StickyNav.enable();
       });
   </script>
+  
+  <script type="text/javascript">
+    jQuery(function() { Search.loadIndex("searchindex.js"); });
+  </script>
+  
+  <script type="text/javascript" id="searchindexloader"></script>
    
+
 
 </body>
 </html>

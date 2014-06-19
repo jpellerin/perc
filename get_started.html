@@ -1,0 +1,329 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Get Started &mdash; Perc 0.5.0 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Perc 0.5.0 documentation" href="index.html"/>
+        <link rel="next" title="Configuration" href="configuration.html"/>
+        <link rel="prev" title="Welcome to Perc’s documentation!" href="index.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="index.html" class="fa fa-home"> Perc</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="">Get Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#install-perc-with-npm">Install perc with npm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#percolate-a-new-or-existing-project">Percolate a new or existing project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#write-code-and-tests">Write code and tests</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html#build">build</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html#check">check</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html#test">test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html#watch">watch</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="workflow.html">Working with perc</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="workflow.html#write-tests">Write tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workflow.html#write-application-modules">Write application modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workflow.html#includes">&#8220;Includes&#8221;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workflow.html#build-the-application">Build the application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workflow.html#check-the-build">Check the build</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workflow.html#automate-it">Automate it</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="init.html">Command: perc init</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="init.html#details">Details</a></li>
+<li class="toctree-l2"><a class="reference internal" href="init.html#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="init.html#options">Options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="test.html">Command: perc test</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="test.html#details">Details</a></li>
+<li class="toctree-l2"><a class="reference internal" href="test.html#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="test.html#options">Options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="build.html">Command: perc build</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="build.html#details">Details</a></li>
+<li class="toctree-l2"><a class="reference internal" href="build.html#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="build.html#options">Options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="check.html">Command: perc check</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="check.html#details">Details</a></li>
+<li class="toctree-l2"><a class="reference internal" href="check.html#usage">Usage</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="watch.html">Command: perc watch</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="watch.html#details">Details</a></li>
+<li class="toctree-l2"><a class="reference internal" href="watch.html#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="watch.html#options">Options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="custom_commands.html">Custom commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id1">0.5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id2">0.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id3">0.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id4">0.1.1</a></li>
+</ul>
+</li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Perc</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Get Started</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="_sources/get_started.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="get-started">
+<h1>Get Started<a class="headerlink" href="#get-started" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="install-perc-with-npm">
+<h2>Install perc with npm<a class="headerlink" href="#install-perc-with-npm" title="Permalink to this headline">¶</a></h2>
+<p>To use perc you must first install it. The easy way to do that is:</p>
+<div class="code highlight-python"><div class="highlight"><pre>$ npm install -g git://github.com/jpellerin/perc
+</pre></div>
+</div>
+<p>You may need <tt class="docutils literal"><span class="pre">sudo</span></tt> with that command, if you haven&#8217;t configured
+your &#8220;global&#8221; npm install space to be somewhere you can normally write
+to. (<a class="reference external" href="https://npmjs.org/doc/config.html">You should do that</a>,
+though, if you haven&#8217;t.)</p>
+<p>If perc is properly installed and on your PATH after that,</p>
+<div class="code highlight-python"><div class="highlight"><pre>$ perc -V
+</pre></div>
+</div>
+<p>should show you perc&#8217;s current version, and</p>
+<div class="code highlight-python"><div class="highlight"><pre>$ perc -h
+</pre></div>
+</div>
+<p>should show you some basic usage information.</p>
+<p>Now that perc is working, it&#8217;s time to percolate a project.</p>
+</div>
+<div class="section" id="percolate-a-new-or-existing-project">
+<h2>Percolate a new or existing project<a class="headerlink" href="#percolate-a-new-or-existing-project" title="Permalink to this headline">¶</a></h2>
+<p>You can use perc to start an entirely new application, or as the basis
+for refactoring or retooling an existing application. In either case,
+you&#8217;re probably better off starting with a new, empty directory. For
+the sake of not saying &#8216;path/to/your/directory&#8217; everywhere, these
+examples will call that directory &#8216;frontend&#8217;.</p>
+<p>Fill the empty directory with:</p>
+<div class="code highlight-python"><div class="highlight"><pre>$ perc init frontend
+</pre></div>
+</div>
+<p>That should have copied the default perc project skeleton into the
+frontend directory, which should now look like this:</p>
+<div class="code highlight-python"><div class="highlight"><pre>$ tree frontend/
+frontend/
+├── index.js
+├── lib
+│   └── example.coffee
+├── Makefile
+├── package.json
+├── sanity
+│   ├── chai.js
+│   ├── mocha.css
+│   └── mocha.js
+├── spec
+│   ├── example.spec.coffee
+└── tasks
+    └─ perc.mk
+</pre></div>
+</div>
+<p>You can find detailed information about each of those files
+<a class="reference internal" href="init.html#init-command"><em>here</em></a>.</p>
+<p>Go to the directory you just created.</p>
+<p>Before running any other perc commands, you&#8217;ll need to update
+<tt class="docutils literal"><span class="pre">package.json</span></tt> to have a sensible <tt class="docutils literal"><span class="pre">name</span></tt> and valid <tt class="docutils literal"><span class="pre">version</span></tt>. Then run:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ npm install
+</pre></div>
+</div>
+<p>To install your package dependencies.</p>
+<p>Now you can run <a class="reference internal" href="test.html#test-command"><em>perc test</em></a> to run tests,
+<a class="reference internal" href="build.html#build-command"><em>perc build</em></a> to build your application, and
+<a class="reference internal" href="check.html#check-command"><em>perc check</em></a> to sanity check the build.</p>
+</div>
+<div class="section" id="write-code-and-tests">
+<h2>Write code and tests<a class="headerlink" href="#write-code-and-tests" title="Permalink to this headline">¶</a></h2>
+<p>The default project skeleton includes a sample module and sample spec
+file to get you started. As you can see, neither one is very complex:</p>
+<div class="section" id="module">
+<h3>Module<a class="headerlink" href="#module" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-coffeescript"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span class="nv">module.exports.echo = </span><span class="nf">(s) -&gt;</span>
+  <span class="nx">s</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="spec">
+<h3>Spec<a class="headerlink" href="#spec" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-coffeescript"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span class="nv">example = </span><span class="nx">require</span> <span class="s">&#39;../lib/example&#39;</span>
+<span class="nv">expect = </span><span class="nx">require</span><span class="p">(</span><span class="s">&#39;chai&#39;</span><span class="p">).</span><span class="nx">expect</span>
+
+<span class="nx">describe</span> <span class="s">&#39;The example module&#39;</span><span class="p">,</span> <span class="nf">-&gt;</span>
+
+  <span class="nx">it</span> <span class="s">&#39;should export an echo method&#39;</span><span class="p">,</span> <span class="nf">-&gt;</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">example</span><span class="p">.</span><span class="nx">echo</span><span class="p">).</span><span class="o">not</span><span class="p">.</span><span class="nx">to</span><span class="p">.</span><span class="nx">be</span><span class="p">.</span><span class="nx">undefined</span>
+
+  <span class="nx">describe</span> <span class="s">&#39;the echo method&#39;</span><span class="p">,</span> <span class="nf">-&gt;</span>
+
+    <span class="nx">it</span> <span class="s">&#39;should return the first argument passed&#39;</span><span class="p">,</span> <span class="nf">-&gt;</span>
+      <span class="nx">expect</span><span class="p">(</span><span class="nx">example</span><span class="p">.</span><span class="nx">echo</span> <span class="s">&#39;x&#39;</span><span class="p">).</span><span class="nx">to</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="s">&#39;x&#39;</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+<p>But they should give you an idea of how things work.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="configuration.html" class="btn btn-neutral float-right" title="Configuration"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Welcome to Perc’s documentation!"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014, Jason Pellerin.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.5.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

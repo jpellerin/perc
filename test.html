@@ -1,0 +1,374 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Command: perc test &mdash; Perc 0.5.0 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Perc 0.5.0 documentation" href="index.html"/>
+        <link rel="next" title="Command: perc build" href="build.html"/>
+        <link rel="prev" title="Command: perc init" href="init.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="index.html" class="fa fa-home"> Perc</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="get_started.html">Get Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="get_started.html#install-perc-with-npm">Install perc with npm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="get_started.html#percolate-a-new-or-existing-project">Percolate a new or existing project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="get_started.html#write-code-and-tests">Write code and tests</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html#build">build</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html#check">check</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html#test">test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html#watch">watch</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="workflow.html">Working with perc</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="workflow.html#write-tests">Write tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workflow.html#write-application-modules">Write application modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workflow.html#includes">&#8220;Includes&#8221;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workflow.html#build-the-application">Build the application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workflow.html#check-the-build">Check the build</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workflow.html#automate-it">Automate it</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="init.html">Command: perc init</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="init.html#details">Details</a></li>
+<li class="toctree-l2"><a class="reference internal" href="init.html#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="init.html#options">Options</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Command: perc test</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#details">Details</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#options">Options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="build.html">Command: perc build</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="build.html#details">Details</a></li>
+<li class="toctree-l2"><a class="reference internal" href="build.html#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="build.html#options">Options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="check.html">Command: perc check</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="check.html#details">Details</a></li>
+<li class="toctree-l2"><a class="reference internal" href="check.html#usage">Usage</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="watch.html">Command: perc watch</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="watch.html#details">Details</a></li>
+<li class="toctree-l2"><a class="reference internal" href="watch.html#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="watch.html#options">Options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="custom_commands.html">Custom commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id1">0.5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id2">0.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id3">0.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id4">0.1.1</a></li>
+</ul>
+</li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Perc</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Command: perc test</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="_sources/test.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="command-perc-test">
+<span id="test-command"></span><h1>Command: perc test<a class="headerlink" href="#command-perc-test" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="details">
+<h2>Details<a class="headerlink" href="#details" title="Permalink to this headline">¶</a></h2>
+<p>The <tt class="docutils literal"><span class="pre">test</span></tt> command compiles and runs tests that match the
+<a class="reference internal" href="configuration.html#cases"><em>configured test case selector</em></a> (as well as any filtering
+options set on the command line). There is an option to activate code
+coverage reporting for coffeescript source files.</p>
+<p>One important thing to note about the test command: <strong>it does not
+write compiled javascript files to disk.</strong> All compilation occurs
+inline.</p>
+<div class="section" id="caveats-and-gotchas">
+<h3>Caveats and gotchas<a class="headerlink" href="#caveats-and-gotchas" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Stack traces printed with test failures and errors have inaccurate
+line numbers: they refer to the line in the compiled javascript
+module, not in the coffeescript source.</li>
+<li>Remember to put &#8216;.spec&#8217; or &#8216;.unit&#8217; in your test file names. This is
+easy to forget and leads to confusing non-loading of tests. See
+<a class="reference internal" href="#cmdoption-perc-test-S"><em class="xref std std-option">--types</em></a> for details.</li>
+</ul>
+</div>
+<div class="section" id="ide-integration">
+<h3>IDE integration<a class="headerlink" href="#ide-integration" title="Permalink to this headline">¶</a></h3>
+<p>perc&#8217;s source distribution includes an emacs module in the <tt class="docutils literal"><span class="pre">extra/</span></tt>
+directory that you can use to run tests inside of emacs. Copy
+<tt class="docutils literal"><span class="pre">extra/perc.el</span></tt> into your load path, and see the file <tt class="docutils literal"><span class="pre">dot.emacs</span></tt>
+(also in <tt class="docutils literal"><span class="pre">extra/</span></tt>) for an example configuration.</p>
+</div>
+</div>
+<div class="section" id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-text"><div class="highlight"><pre>$ perc test --help
+
+  Usage: test &lt;modules&gt; [options]
+
+  Run unit tests
+
+  Options:
+
+    -h, --help                    output usage information
+    -S, --types [TYPES]           Set types of test to load
+    -C, --cover                   Output coverage report
+    -G, --grep [PATTERN]          Only run tests matching pattern
+    -R, --reporter [REPORTER]     Set the mocha reporter
+    -U, --ui [MOCHA_UI]           Set mocha ui (default: bdd)
+    -T, --timeout [TEST_TIMEOUT]  Set test timeout
+    --no-initdom                  Do not set up jsdom &quot;window&quot; before tests
+    --no-ignoreleaks              Do not ignore leaks of globals
+</pre></div>
+</div>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<dl class="option">
+<dt id="cmdoption-perc-test-S">
+<span id="cmdoption-perc-test--types"></span><tt class="descname">-S</tt><tt class="descclassname"> [TYPES]</tt><tt class="descclassname">, </tt><tt class="descname">--types</tt><tt class="descclassname"> [TYPES]</tt><a class="headerlink" href="#cmdoption-perc-test-S" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the types of tests to run. This must be a comma-separated list
+of test type names. A prospective test module must include one of
+these names as a sub-extension in order to match and be loaded. For
+instance if &#8216;spec&#8217; is included in the list, the test module
+<tt class="docutils literal"><span class="pre">test.spec.coffee</span></tt> will load; but if the list were only
+&#8216;integration,functional`, that test module would <em>not</em> be loaded.</p>
+<p>The default value is &#8220;spec,unit,functional&#8221;</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-perc-test-C">
+<span id="cmdoption-perc-test--cover"></span><tt class="descname">-C</tt><tt class="descclassname"></tt><tt class="descclassname">, </tt><tt class="descname">--cover</tt><tt class="descclassname"></tt><a class="headerlink" href="#cmdoption-perc-test-C" title="Permalink to this definition">¶</a></dt>
+<dd><p>Measure code coverage during testing. It is important to note
+that <strong>coverage can only be measured for .coffee files</strong>, because the
+instrumentation that allows coverage measurement takes place
+during coffeescript compilation.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This option can interact with the <a class="reference internal" href="#cmdoption-perc-test-R"><em class="xref std std-option">--reporter</em></a>
+option, below. If you turn on code coverage but have
+selected a non-coverage reporter, the selected reporter will be
+wrapped by another reporter that outputs an html coverage
+file. If you do not want html coverage output, set
+<a class="reference internal" href="#cmdoption-perc-test-R"><em class="xref std std-option">--reporter</em></a> to a reporter with
+&#8220;cov&#8221; in the name.</p>
+</div>
+<p>Default: false</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-perc-test-G">
+<span id="cmdoption-perc-test--grep"></span><tt class="descname">-G</tt><tt class="descclassname"> [PATTERN]</tt><tt class="descclassname">, </tt><tt class="descname">--grep</tt><tt class="descclassname"> [PATTERN]</tt><a class="headerlink" href="#cmdoption-perc-test-G" title="Permalink to this definition">¶</a></dt>
+<dd><p>The grep option is passed through to mocha, where it will be used to filter
+test modules and cases. Only modules and cases that match the grep
+expression will be loaded.</p>
+<p>Default: None</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-perc-test-R">
+<span id="cmdoption-perc-test--reporter"></span><tt class="descname">-R</tt><tt class="descclassname"> [REPORTER]</tt><tt class="descclassname">, </tt><tt class="descname">--reporter</tt><tt class="descclassname"> [REPORTER]</tt><a class="headerlink" href="#cmdoption-perc-test-R" title="Permalink to this definition">¶</a></dt>
+<dd><p>The mocha reporter. This option, like <a class="reference internal" href="#cmdoption-perc-test-G"><em class="xref std std-option">--grep</em></a>
+and <a class="reference internal" href="#cmdoption-perc-test-U"><em class="xref std std-option">--ui</em></a>, is passed directly to
+mocha.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This option can interact with the <a class="reference internal" href="#cmdoption-perc-test-C"><em class="xref std std-option">--cover</em></a>
+option above, If you turn on code coverage but have
+selected a non-coverage reporter, the selected reporter will be
+wrapped by another reporter that outputs an html coverage
+file. If you do not want html coverage output, specify with
+&#8220;cov&#8221; in the name.</p>
+</div>
+<p>Default: spec</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-perc-test-U">
+<span id="cmdoption-perc-test--ui"></span><tt class="descname">-U</tt><tt class="descclassname"> [UI]</tt><tt class="descclassname">, </tt><tt class="descname">--ui</tt><tt class="descclassname"> [UI]</tt><a class="headerlink" href="#cmdoption-perc-test-U" title="Permalink to this definition">¶</a></dt>
+<dd><p>This option, like <a class="reference internal" href="#cmdoption-perc-test-G"><em class="xref std std-option">--grep</em></a> and
+<a class="reference internal" href="#cmdoption-perc-test-R"><em class="xref std std-option">--reporter</em></a>, is passed through to
+mocha. Use it to set the test-writing ui that mocha makes
+available.</p>
+<p>Default: bdd</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-perc-test-T">
+<span id="cmdoption-perc-test--timeout"></span><tt class="descname">-T</tt><tt class="descclassname"> [TEST_TIMEOUT]</tt><tt class="descclassname">, </tt><tt class="descname">--timeout</tt><tt class="descclassname"> [TEST_TIMEOUT]</tt><a class="headerlink" href="#cmdoption-perc-test-T" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the maximum time each individual test will be allowed to
+execute before failing, in milliseconds.</p>
+<p>Default: 6000</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-perc-test--no-initdom">
+<tt class="descname">--no-initdom</tt><tt class="descclassname"></tt><a class="headerlink" href="#cmdoption-perc-test--no-initdom" title="Permalink to this definition">¶</a></dt>
+<dd><p>Turn off jsdom initialization. By default, <tt class="docutils literal"><span class="pre">perc</span> <span class="pre">test</span></tt> mimics a
+browser environment by using jsdom to create a global <tt class="docutils literal"><span class="pre">window</span></tt>
+and <tt class="docutils literal"><span class="pre">document</span></tt>. If you don&#8217;t want this to happen, or want to
+control it yourself, use this option to turn it off.</p>
+<p>Default: false</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-perc-test--no-ignoreleaks">
+<tt class="descname">--no-ignoreleaks</tt><tt class="descclassname"></tt><a class="headerlink" href="#cmdoption-perc-test--no-ignoreleaks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Turn on mocha&#8217;s global leak detection. Note that this option and
+<a class="reference internal" href="#cmdoption-perc-test--no-initdom"><em class="xref std std-option">--initdom</em></a> are unlikely to work well
+together. It is also likely that, if you turn on mocha&#8217;s global
+leak checking, you will not be able to use any non-npm modul in
+your application (or at least, not in any part of it with tests run
+by <tt class="docutils literal"><span class="pre">perc</span> <span class="pre">test</span></tt>).</p>
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="build.html" class="btn btn-neutral float-right" title="Command: perc build"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="init.html" class="btn btn-neutral" title="Command: perc init"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014, Jason Pellerin.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.5.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
