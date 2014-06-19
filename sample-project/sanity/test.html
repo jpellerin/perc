@@ -1,0 +1,59 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="mocha.css" />
+  </head>
+  <body>
+    <div id="mocha"></div>
+    <script src="mocha.js"></script>
+    <script src="chai.js"></script>
+    <script src="coffee-script.js"></script>
+    <script>
+      mocha.ui('bdd');
+      mocha.reporter('html');
+      mocha.ignoreLeaks();
+      expect = chai.expect;
+    </script>
+    <script src="../static/app.js"></script>
+    <script>
+      describe('the built application file', function() {
+          it('should have a global require function', function() {
+             expect(require).to.not.be.undefined;
+          })
+
+    
+          it('should include the module "/lib/bindings"', function() {
+              var mod = require("//lib/bindings");
+              expect(mod).to.not.be.undefined;
+          })
+    
+          it('should include the module "/lib/main"', function() {
+              var mod = require("//lib/main");
+              expect(mod).to.not.be.undefined;
+          })
+    
+          it('should include the module "/lib/model/item"', function() {
+              var mod = require("//lib/model/item");
+              expect(mod).to.not.be.undefined;
+          })
+    
+          it('should include the module "/lib/util"', function() {
+              var mod = require("//lib/util");
+              expect(mod).to.not.be.undefined;
+          })
+    
+          it('should include the module "/lib/view/main"', function() {
+              var mod = require("//lib/view/main");
+              expect(mod).to.not.be.undefined;
+          })
+    
+
+    })
+    </script>
+    
+    <script>
+      if (window.mochaPhantomJS) { mochaPhantomJS.run(); }
+      else { mocha.run(); }
+    </script>
+  </body>
+</html>

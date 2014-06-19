@@ -1,0 +1,43 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="mocha.css" />
+  </head>
+  <body>
+    <div id="mocha"></div>
+    <script src="mocha.js"></script>
+    <script src="chai.js"></script>
+    <script src="coffee-script.js"></script>
+    <script>
+      mocha.ui('bdd');
+      mocha.reporter('html');
+      mocha.ignoreLeaks();
+      expect = chai.expect;
+    </script>
+    <script src="<%= @app_js %>"></script>
+    <script>
+      describe('the built application file', function() {
+          it('should have a global require function', function() {
+             expect(require).to.not.be.undefined;
+          })
+
+    <% for module in @cases: %>
+          it('should include the module "<%= module %>"', function() {
+              var mod = require("<%= module %>");
+              expect(mod).to.not.be.undefined;
+          })
+    <% end %>
+
+    })
+    </script>
+    <% if @more_tests: %>
+    <% for test in @more_tests: %>
+    <script src="<%= test %>"></script>
+    <% end %>
+    <% end %>
+    <script>
+      if (window.mochaPhantomJS) { mochaPhantomJS.run(); }
+      else { mocha.run(); }
+    </script>
+  </body>
+</html>

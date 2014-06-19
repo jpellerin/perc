@@ -1,0 +1,25 @@
+{
+    "name": "perc-sample-project",
+    "version": "0.0.1",
+    "dependencies": {
+        "debug": "~0.7.2"
+    },
+    "devDependencies": {
+        "chai": "~1.5.0"
+    },
+    "perc": {
+        "build": {
+            "sources": "lib",
+            "sourcePattern": "**/*.coffee",
+            "output": "static/app.js"
+        },
+        "check": {
+            "dir": "sanity",
+            "test": "test.html",
+            "//moreTests": ["test.js"]
+        },
+        "test": {
+            "cases": "spec/**/*.coffee"
+        }
+    }
+}

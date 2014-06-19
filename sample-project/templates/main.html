@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <title>Sample!</title>
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css"></link>
+    <script src="/static/app.js"></script>
+    <script>
+      require('./lib/main').main()
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="span12">
+          <h1>Sample</h1>
+          <div data-view="/lib/view/main" data-src="/items">
+            <div data-bind="if: ready">
+              <h3 data-bind="text: name"></h3>
+
+              <ul data-bind="foreach: items">
+                <li data-bind="text: name, tooltip: id"></li>
+              </ul>
+            </div>
+            <div data-bind="if: !ready()">
+           Loading...
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
