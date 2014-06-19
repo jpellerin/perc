@@ -1,0 +1,387 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Perc by jpellerin</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Perc</h1>
+        <p>Perc is a coffeescript application build and test helper</p>
+
+        <p class="view"><a href="https://github.com/jpellerin/perc">View the Project on GitHub <small>jpellerin/perc</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/jpellerin/perc/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/jpellerin/perc/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/jpellerin/perc">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a name="perc" class="anchor" href="#perc"><span class="octicon octicon-link"></span></a>perc</h1>
+
+<p><code>perc</code> is a coffeescript application development tool. Its goal is to
+make developing large, modular browser applications in coffeescript as
+easy and painless as possible. It makes several assumptions and has
+several opinions:</p>
+
+<ul>
+<li>application code and tests are written in coffeescript</li>
+<li>application code is organized into commonjs modules</li>
+<li>target build is a single, monolithic javascript file
+that includes all application modules and all modules
+they <code>require</code>
+</li>
+<li>
+<a href="http://visionmedia.github.com/mocha/">mocha</a> is used for unit
+tests, which are run under nodejs, optionally using
+<a href="https://github.com/tmpvar/jsdom">jsdom</a>
+</li>
+<li>build sanity check also uses mocha, but runs under
+<a href="http://phantomjs.org/">phantomjs</a>
+</li>
+</ul><h1>
+<a name="get-started" class="anchor" href="#get-started"><span class="octicon octicon-link"></span></a>Get started</h1>
+
+<h2>
+<a name="install" class="anchor" href="#install"><span class="octicon octicon-link"></span></a>Install</h2>
+
+<pre><code>npm install -g git://github.com/jpellerin/perc
+</code></pre>
+
+<h2>
+<a name="copy-project-skeleton" class="anchor" href="#copy-project-skeleton"><span class="octicon octicon-link"></span></a>Copy project skeleton</h2>
+
+<p>The command <code>perc init</code> will copy a project skeleton -- either the
+default, or any git repo -- into the working directory or a directory
+you specify. It will only write files that don't already exist.</p>
+
+<p>So, run <code>perc init</code> and then open up and customize the <code>package.json</code>
+file it generated.</p>
+
+<p>Once you've at least set a name and valid version (say, '1.0.0') in
+<code>package.json</code>, run <code>npm install</code> to install common development
+dependencies. Then you can run <code>perc</code> commands, either via the <code>perc</code>
+script, or the <code>Makefile</code> that the skeleton generated (if you used the
+default).</p>
+
+<p>Here are some next steps:</p>
+
+<ul>
+<li><p>Find the example module in <code>lib</code> and a test module for it in
+<code>spec</code>.</p></li>
+<li><p>Run <code>perc test</code> (or <code>make test</code>) to run the tests.</p></li>
+<li><p>Run <code>perc build</code> or <code>make build</code> to build the output file
+(<code>static/app.js</code> unless you've customized it in <code>config.coffee</code>).</p></li>
+<li><p>Run <code>perc check</code> or <code>make check</code> to run sanity tests for the
+output file. Note that you need <code>phantomjs</code> installed to
+run the sanity tests.</p></li>
+</ul><h1>
+<a name="configuration" class="anchor" href="#configuration"><span class="octicon octicon-link"></span></a>Configuration</h1>
+
+<blockquote>
+<p><strong>NOTE</strong> This is a change in version 0.2. In version 0.1,
+configuration was kept in a separate config file.</p>
+</blockquote>
+
+<p><code>perc</code> gets its configuration from the <code>perc</code> section in your
+project's <code>package.json</code>. The default configuration values
+from the skeleton are:</p>
+
+<div class="highlight highlight-json"><pre><span class="p">{</span>
+    <span class="nt">"perc"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">"build"</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">"sources"</span><span class="p">:</span> <span class="s2">"lib"</span><span class="p">,</span>
+            <span class="nt">"sourcePattern"</span><span class="p">:</span> <span class="s2">"**/*.coffee"</span><span class="p">,</span>
+            <span class="nt">"output"</span><span class="p">:</span> <span class="s2">"static/app.js"</span>
+        <span class="p">},</span>
+        <span class="nt">"check"</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">"dir"</span><span class="p">:</span> <span class="s2">"sanity"</span><span class="p">,</span>
+            <span class="nt">"test"</span><span class="p">:</span> <span class="s2">"test.html"</span>
+             <span class="s2">"//moreTests"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"test.js"</span><span class="p">]</span>
+        <span class="p">},</span>
+        <span class="nt">"test"</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">"cases"</span><span class="p">:</span> <span class="s2">"spec/**/*.coffee"</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>This means:</p>
+
+<ul>
+<li>Application code is in <code>lib/</code> and its subdirectories</li>
+<li>Unit tests are in <code>spec/</code>
+</li>
+<li>The output file for builds is <code>sanity/app.js</code>
+</li>
+<li>The automatically generated sanity test html file is <code>sanity/test.html</code>
+</li>
+<li>The sanity test will include only the generated tests, no custom
+tests -- <code>moreTests</code> is commented out (sort of... as well as you can 
+comment out a json key).</li>
+</ul><h1>
+<a name="workflow" class="anchor" href="#workflow"><span class="octicon octicon-link"></span></a>Workflow</h1>
+
+<p><code>perc</code> encourages a TDDish workflow in which unit tests are written, if not
+first, then often, and run frequently.</p>
+
+<h2>
+<a name="write-tests" class="anchor" href="#write-tests"><span class="octicon octicon-link"></span></a>Write tests</h2>
+
+<p>Write tests using mocha's BDD style, give them the exension
+<code>.spec.coffee</code>, and put them into the <code>spec/</code> directory. Run them with
+<code>perc test</code> or <code>make test</code>.</p>
+
+<p>Test coverage is available by adding the <code>-C</code> flag to <code>perc test</code> (or
+call <code>make cover</code>). Coverage is output to <code>coverage.html</code>. It applies
+to the coffescript sources, not the generated javascript.</p>
+
+<h2>
+<a name="write-application-modules" class="anchor" href="#write-application-modules"><span class="octicon octicon-link"></span></a>Write application modules</h2>
+
+<p>Write application modules in coffeescript and put them under
+<code>lib/</code>. You can use nodejs modules supported by
+<a href="http://browserify.org/">browserify</a> -- <code>npm install --save</code> them to
+ensure your <code>package.json</code> stays up to date.</p>
+
+<h2>
+<a name="includes" class="anchor" href="#includes"><span class="octicon octicon-link"></span></a>"Includes"</h2>
+
+<p>If you want to use other, non-modular javascript files, put them in a
+different directory, either under <code>lib/</code> or elsewhere. Then, <code>require</code>
+them using a relative path as if they were commonjs modules. As long
+as they operate on <code>window</code> or have a valid commonjs wrapper, they
+should work fine. The ones without a wrapper, of course, won't export
+anything, so whatever you want from them you'll have to pull out of
+<code>global.window</code>. For instance, here's now the sample project uses
+jquery, which it has placed under <code>lib/includes/</code>:</p>
+
+<div class="highlight highlight-coffeescript"><pre><span class="nx">require</span><span class="p">(</span><span class="s">'../includes/jquery'</span><span class="p">)</span>
+
+<span class="nv">main = </span><span class="nf">() -&gt;</span>
+  <span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span> <span class="nf">() -&gt;</span>
+    <span class="nx">load</span><span class="p">()</span>
+</pre></div>
+
+<p>In some cases you may need to update an include's commonjs wrapper, if
+it has dependencies and lists them as global.</p>
+
+<h2>
+<a name="build-the-application" class="anchor" href="#build-the-application"><span class="octicon octicon-link"></span></a>Build the application</h2>
+
+<p><code>perc build</code> will compile all of your coffeescript sources into
+javascript and combine them into one monolithic module, which will be
+saved to the path set by <code>config.build.output</code> -- <code>static/app.js</code> by
+default. The real work is done by
+<a href="http://browserify.org/">browserify</a>, so <code>perc</code> supports all of the
+node modules that browserify does. You can also build a minimized
+version.</p>
+
+<p>The build application puts only the <code>require</code> function into the global
+namespace. You use that to load application code. Here's how the
+sample project does it:</p>
+
+<div class="highlight highlight-html"><pre><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"/static/app.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script&gt;</span>
+  <span class="nx">require</span><span class="p">(</span><span class="s1">'./lib/main'</span><span class="p">).</span><span class="nx">main</span><span class="p">()</span>
+<span class="nt">&lt;/script&gt;</span>
+</pre></div>
+
+<h2>
+<a name="check-the-build" class="anchor" href="#check-the-build"><span class="octicon octicon-link"></span></a>Check the build</h2>
+
+<p><code>perc check</code> will generate a sanity test file that checks that the
+built application can load and that each of your application modules
+can be <code>required</code>. If you want to test more than that, you can add
+test modules to the sanity directory, and put them in your config
+file's <code>config.check.moreTests</code> list.</p>
+
+<p>The test file is set up to load
+<a href="http://visionmedia.github.com/mocha/">mocha</a>,
+<a href="http://chaijs.com">chai</a> for use in writing additional tests. Note
+that these tests will <em>not</em> be compiled from coffeescript
+automatically. If you want to write sanity tests in coffeescript, you
+must set up a build process for them.</p>
+
+<p>You can also load the sanity test file in any browser.</p>
+
+<h2>
+<a name="automate-it" class="anchor" href="#automate-it"><span class="octicon octicon-link"></span></a>Automate it</h2>
+
+<p><code>perc watch</code> will watch your <code>lib/</code> and <code>spec/</code> directories and run
+<code>perc test</code> (and optionally <code>perc build</code> and <code>perc check</code>) whenever it
+detects a changed file.</p>
+
+<h1>
+<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h1>
+
+<pre><code>Usage: perc [options] command &lt;command arguments...&gt; &lt;command options...&gt;
+
+For help on individual commands, enter perc command --help
+
+Commands:
+
+  help                   Print usage information
+  build [options]        Build monolithic app.js in public directory
+  check [options]        Run sanity tests on monolithic app.js file
+  init [options]         Initialize a project from a skeleton
+  test [options]         Run unit tests
+  watch [options]        Watch for changes and test/build when they happen
+  *                      Custom commmand modules are supported
+
+Options:
+
+  -h, --help               output usage information
+  -V, --version            output the version number
+  -c, --config [FILE]      Config file
+  -s, --section [SECTION]  perc config key in config file
+  -v, --verbose            Be more verbose
+</code></pre>
+
+<h2>
+<a name="build" class="anchor" href="#build"><span class="octicon octicon-link"></span></a>build</h2>
+
+<pre><code>Usage: build [options]
+
+Build monolithic app.js in public directory
+
+Options:
+
+  -h, --help      output usage information
+  -o, --optimize  Uglify/minify app.js
+</code></pre>
+
+<h2>
+<a name="check" class="anchor" href="#check"><span class="octicon octicon-link"></span></a>check</h2>
+
+<blockquote>
+<p><strong>NOTE</strong>: mocha-phantomjs opts not working yet</p>
+</blockquote>
+
+<pre><code>Usage: check [options]
+
+Run sanity tests on monolithic app.js file
+
+Options:
+
+  -h, --help                           output usage information
+  -M, --mocha-phatomjs-opts [OPTIONS]  Set options for mocha-phantomjs
+
+</code></pre>
+
+<h2>
+<a name="init" class="anchor" href="#init"><span class="octicon octicon-link"></span></a>init</h2>
+
+<blockquote>
+<p><strong>NOTE</strong> skeletons from urls/git repos not working yet</p>
+</blockquote>
+
+<pre><code>Usage: init &lt;path&gt; [options]
+
+Initialize a project from a skeleton
+
+Options:
+
+  -h, --help                     output usage information
+  -S, --skeleton [SKELETON]      Skeleton path or url
+  --set [NAME:VALUE,NAME:VALUE]  Set project package config variable
+</code></pre>
+
+<h2>
+<a name="test" class="anchor" href="#test"><span class="octicon octicon-link"></span></a>test</h2>
+
+<pre><code>Usage: test &lt;modules&gt; [options]
+
+Run unit tests
+
+Options:
+
+  -h, --help                    output usage information
+  -S, --types [TYPES]           Set types of test to load
+  -C, --cover                   Output coverage report
+  -G, --grep [PATTERN]          Only run tests matching pattern
+  -R, --reporter [REPORTER]     Set the mocha reporter
+  -U, --ui [MOCHA_UI]           Set mocha ui (default: bdd)
+  -T, --timeout [TEST_TIMEOUT]  Set test timeout
+  --no-initdom                  Do not set up jsdom "window" before tests
+  --no-ignoreleaks              Do not ignore leaks of globals
+
+</code></pre>
+
+<h2>
+<a name="watch" class="anchor" href="#watch"><span class="octicon octicon-link"></span></a>watch</h2>
+
+<p>Watch for changes to lib or test files, run tests and/or build and check
+when they happen.</p>
+
+<pre><code>Usage: watch [options]
+
+Options:
+
+  -h, --help      output usage information
+  -T, --no-test   Do not run tests when project or test files change
+  -B, --no-build  Do not build when project files change
+  -C, --no-check  Do not run check after building
+</code></pre>
+
+<h1>
+<a name="more-things" class="anchor" href="#more-things"><span class="octicon octicon-link"></span></a>More Things!</h1>
+
+<h2>
+<a name="sample-application" class="anchor" href="#sample-application"><span class="octicon octicon-link"></span></a>Sample application</h2>
+
+<p>The sample application in <code>sample-project/</code> is a simple Flask app that
+demonstrates how to integrate things like jquery, knockoutjs and
+bootstrap, and test ajax calls and generally be cool.</p>
+
+<h2>
+<a name="custom-commands" class="anchor" href="#custom-commands"><span class="octicon octicon-link"></span></a>Custom commands</h2>
+
+<p>Any module that exports a function can be a <code>perc</code> command. In theory,
+at least. Custom commands may be local modules, local modules prefixed
+with <code>perc-</code> or packages installed into <code>node_modules</code>. They should
+generally follow the form:</p>
+
+<div class="highlight highlight-coffeescript"><pre><span class="nv">module.exports = </span><span class="nf">(program, config, args...) -&gt;</span>
+  <span class="c1"># do something useful</span>
+  <span class="c1"># exit with a non-zero exit code if something goes wrong</span>
+
+</pre></div>
+
+<h2>
+<a name="emacs-support" class="anchor" href="#emacs-support"><span class="octicon octicon-link"></span></a>Emacs support</h2>
+
+<p>In the <code>extra</code> directory you'll find an elisp module (<code>perc.el</code>) and a
+usage suggestion (<code>dot.emacs</code>). Put the module into <code>~/.emacs.d</code> and
+the contents of <code>dot.emacs</code> into <code>~/.emacs</code> (or <code>~/.emacs.d/init.el</code>)
+-- and adjust the perc command variable if needed -- and you'll be
+able to run individual test modules from within emacs with <code>C-cM</code>, and
+run the test module associated with an application module (either by
+name or by setting the <code>spec</code> file variable) with <code>C-cs</code>.</p>
+
+<h1>
+<a name="similar-projects" class="anchor" href="#similar-projects"><span class="octicon octicon-link"></span></a>Similar projects</h1>
+
+<p><a href="http://brunch.io">brunch</a> and <a href="">yeoman</a> are good alternatives to <code>perc</code>.</p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/jpellerin">jpellerin</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
