@@ -11,7 +11,7 @@ several opinions:
 * target build is a single, monolithic javascript file
   that includes all application modules and all modules
   they `require`
-* [mocha](http://visionmedia.github.com/mocha/) is used for unit
+* [mocha](http://mochajs.org/) is used for unit
   tests, which are run under nodejs, optionally using
   [jsdom](https://github.com/tmpvar/jsdom)
 * build sanity check also uses mocha, but runs under
@@ -183,7 +183,7 @@ test modules to the sanity directory, and put them in your config
 file's `config.check.moreTests` list.
 
 The test file is set up to load
-[mocha](http://visionmedia.github.com/mocha/),
+[mocha](http://mochajs.org/),
 [chai](http://chaijs.com) for use in writing additional tests. Note
 that these tests will *not* be compiled from coffeescript
 automatically. If you want to write sanity tests in coffeescript, you
